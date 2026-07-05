@@ -1,0 +1,112 @@
+[
+  {
+    "url": "https://www.google.com",
+    "error": null,
+    "score": 0,
+    "risk_level": "Low",
+    "flags_raised": 0,
+    "total_checks": 9,
+    "explanations": []
+  },
+  {
+    "url": "https://www.wikipedia.org",
+    "error": null,
+    "score": 0,
+    "risk_level": "Low",
+    "flags_raised": 0,
+    "total_checks": 9,
+    "explanations": []
+  },
+  {
+    "url": "https://github.com",
+    "error": null,
+    "score": 0,
+    "risk_level": "Low",
+    "flags_raised": 0,
+    "total_checks": 9,
+    "explanations": []
+  },
+  {
+    "url": "http://192.168.1.1/wp-login.php",
+    "error": null,
+    "score": 40,
+    "risk_level": "Medium",
+    "flags_raised": 2,
+    "total_checks": 9,
+    "explanations": [
+      "+25 pts - IP address instead of domain: 192.168.1.1",
+      "+15 pts - Suspicious keywords: Found: login"
+    ]
+  },
+  {
+    "url": "http://secure-login.account-verify-update.com",
+    "error": null,
+    "score": 25,
+    "risk_level": "Medium",
+    "flags_raised": 2,
+    "total_checks": 9,
+    "explanations": [
+      "+10 pts - Excessive hyphens in domain: 3 hyphen(s) (threshold: 2)",
+      "+15 pts - Suspicious keywords: Found: account, verify, update, login, secure"
+    ]
+  },
+  {
+    "url": "http://paypa1.com/login",
+    "error": null,
+    "score": 45,
+    "risk_level": "Medium",
+    "flags_raised": 2,
+    "total_checks": 9,
+    "explanations": [
+      "+15 pts - Suspicious keywords: Found: login",
+      "+30 pts - Typosquatting: 'paypa1.com' closely resembles known domain 'paypal.com' (edit distance: 0)"
+    ]
+  },
+  {
+    "url": "http://bank-of-america.com",
+    "error": null,
+    "score": 40,
+    "risk_level": "Medium",
+    "flags_raised": 2,
+    "total_checks": 9,
+    "explanations": [
+      "+10 pts - Excessive hyphens in domain: 2 hyphen(s) (threshold: 2)",
+      "+30 pts - Typosquatting: 'bank-of-america.com' closely resembles known domain 'bankofamerica.com' (edit distance: 2)"
+    ]
+  },
+  {
+    "url": "http://gooogle.com",
+    "error": null,
+    "score": 30,
+    "risk_level": "Medium",
+    "flags_raised": 1,
+    "total_checks": 9,
+    "explanations": [
+      "+30 pts - Typosquatting: 'gooogle.com' closely resembles known domain 'google.com' (edit distance: 1)"
+    ]
+  },
+  {
+    "url": "http://bit.ly/3xample",
+    "error": null,
+    "score": 15,
+    "risk_level": "Low",
+    "flags_raised": 1,
+    "total_checks": 9,
+    "explanations": [
+      "+15 pts - URL shortener service: bit.ly"
+    ]
+  },
+  {
+    "url": "http://192.168.0.5@secure-bank-update.com/login",
+    "error": null,
+    "score": 45,
+    "risk_level": "Medium",
+    "flags_raised": 3,
+    "total_checks": 9,
+    "explanations": [
+      "+20 pts - '@' symbol in URL: Found '@', which can hide the real destination",
+      "+10 pts - Excessive hyphens in domain: 2 hyphen(s) (threshold: 2)",
+      "+15 pts - Suspicious keywords: Found: update, login, secure"
+    ]
+  }
+]

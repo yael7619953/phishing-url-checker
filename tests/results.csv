@@ -1,0 +1,11 @@
+url,score,risk_level,flags_raised,total_checks,explanations,error
+https://www.google.com,0,Low,0,9,,
+https://www.wikipedia.org,0,Low,0,9,,
+https://github.com,0,Low,0,9,,
+http://192.168.1.1/wp-login.php,40,Medium,2,9,+25 pts - IP address instead of domain: 192.168.1.1 | +15 pts - Suspicious keywords: Found: login,
+http://secure-login.account-verify-update.com,25,Medium,2,9,"+10 pts - Excessive hyphens in domain: 3 hyphen(s) (threshold: 2) | +15 pts - Suspicious keywords: Found: login, secure, verify, account, update",
+http://paypa1.com/login,45,Medium,2,9,+15 pts - Suspicious keywords: Found: login | +30 pts - Typosquatting: 'paypa1.com' closely resembles known domain 'paypal.com' (edit distance: 0),
+http://bank-of-america.com,40,Medium,2,9,+10 pts - Excessive hyphens in domain: 2 hyphen(s) (threshold: 2) | +30 pts - Typosquatting: 'bank-of-america.com' closely resembles known domain 'bankofamerica.com' (edit distance: 2),
+http://gooogle.com,30,Medium,1,9,+30 pts - Typosquatting: 'gooogle.com' closely resembles known domain 'google.com' (edit distance: 1),
+http://bit.ly/3xample,15,Low,1,9,+15 pts - URL shortener service: bit.ly,
+http://192.168.0.5@secure-bank-update.com/login,45,Medium,3,9,"+20 pts - '@' symbol in URL: Found '@', which can hide the real destination | +10 pts - Excessive hyphens in domain: 2 hyphen(s) (threshold: 2) | +15 pts - Suspicious keywords: Found: login, secure, update",

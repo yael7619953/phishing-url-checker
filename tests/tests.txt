@@ -1,0 +1,12 @@
+# --- Known-safe / real domains ---
+[REAL] https://www.google.com
+[REAL] https://www.wikipedia.org
+[REAL] https://github.com
+
+[SUSPICIOUS] http://192.168.1.1/wp-login.php
+[SUSPICIOUS] http://secure-login.account-verify-update.com
+[SUSPICIOUS] http://paypa1.com/login
+[SUSPICIOUS] http://bank-of-america.com
+[SUSPICIOUS] http://gooogle.com
+[SUSPICIOUS] http://bit.ly/3xample
+[SUSPICIOUS] http://192.168.0.5@secure-bank-update.com/login
