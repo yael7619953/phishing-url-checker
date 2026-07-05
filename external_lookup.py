@@ -3,8 +3,6 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-api_key = os.getenv("SAFE_BROWSING_API_KEY")
-
 try:
     import requests
     REQUESTS_AVAILABLE = True
@@ -58,7 +56,7 @@ def check_safe_browsing(url: str) -> dict:
     if not REQUESTS_AVAILABLE:
         return _skipped_result("'requests' library is not installed")
 
-    #api_key = os.environ.get("SAFE_BROWSING_API_KEY")
+    api_key = os.getenv("SAFE_BROWSING_API_KEY")
     if not api_key:
         return _skipped_result("SAFE_BROWSING_API_KEY environment variable not set")
 
