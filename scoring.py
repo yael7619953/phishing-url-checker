@@ -9,6 +9,7 @@ CHECK_WEIGHTS = {
     "Excessive hyphens in domain": 10,
     "Suspicious keywords": 15,
     "URL shortener service": 15,
+    "Typosquatting": 30,
 }
 
 # Score thresholds for classification (inclusive lower bound)

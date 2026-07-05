@@ -29,8 +29,12 @@ DISTANCE_THRESHOLD = 2
 
 
 def normalize_homoglyphs(domain: str) -> str:
-    """Replace look-alike characters/sequences with the letter they imitate."""
+    """Replace look-alike characters/sequences with the letter they imitate,
+    and strip a leading 'www.' so it doesn't inflate the edit distance
+    against known domains (which are stored without 'www.')."""
     normalized = domain.lower()
+    if normalized.startswith("www."):
+        normalized = normalized[4:]
     for fake, real in HOMOGLYPH_MAP.items():
         normalized = normalized.replace(fake, real)
     return normalized
@@ -96,8 +100,12 @@ def check_typosquatting(hostname: str) -> dict:
 
     # Distance 0 means it either IS the known domain, or is visually
     # identical to it after homoglyph normalization - only flag if the
-    # actual (non-normalized) hostname differs from the known domain.
-    is_exact_real_domain = hostname.lower() == closest_domain
+    # actual (non-normalized, but www-stripped) hostname differs from the
+    # known domain.
+    bare_hostname = hostname.lower()
+    if bare_hostname.startswith("www."):
+        bare_hostname = bare_hostname[4:]
+    is_exact_real_domain = bare_hostname == closest_domain
     flagged = (0 < distance <= DISTANCE_THRESHOLD) or (distance == 0 and not is_exact_real_domain)
 
     if flagged:

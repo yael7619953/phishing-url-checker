@@ -11,6 +11,8 @@ import argparse
 import re
 from urllib.parse import urlparse
 
+from typosquatting import check_typosquatting
+
 # Common URL shortener domains
 SHORTENER_DOMAINS = {
     "bit.ly", "tinyurl.com", "t.co", "goo.gl", "ow.ly",
@@ -123,6 +125,7 @@ def analyze_url(raw_url: str) -> list:
         check_hyphens(hostname),
         check_suspicious_keywords(url),
         check_shortener(hostname),
+        check_typosquatting(hostname),
     ]
 
 
