@@ -12,8 +12,11 @@ main.py.
 """
 
 import csv
+import io
 import json
 import re
+
+from scoring import CHECK_WEIGHTS
 
 # Matches an optional leading label like "[REAL] " or "[SUSPICIOUS] " at the
 # start of a line, so test files can be annotated with ground-truth tags
@@ -79,6 +82,31 @@ def print_summary_table(reports: list) -> None:
     if errored:
         summary += f" {errored} could not be scanned."
     print(summary)
+
+
+def build_detailed_csv(url: str, results: list, score_data: dict) -> str:
+    """
+    Build a CSV (as a string) with one row per check for a single URL - the
+    "detailed report" a person downloads after scanning one link on the web
+    frontend. This is intentionally different from export_csv() above, which
+    is one row per URL for batch scans.
+
+    Layout: a two-line summary block (url/score/risk), a blank separator
+    line, then one row per individual check.
+    """
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+
+    writer.writerow(["url", "score", "risk_level"])
+    writer.writerow([url, score_data["score"], score_data["risk_level"]])
+    writer.writerow([])
+
+    writer.writerow(["check", "flagged", "points", "detail"])
+    for r in results:
+        points = CHECK_WEIGHTS.get(r["name"], 0) if r["flagged"] else 0
+        writer.writerow([r["name"], "Yes" if r["flagged"] else "No", points, r["detail"]])
+
+    return buffer.getvalue()
 
 
 def export_csv(reports: list, filepath: str) -> None:

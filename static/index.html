@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סורק קישורי פישינג</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<main>
+  <p class="eyebrow">URL RISK SCANNER</p>
+  <h1>הקישור הזה בטוח?</h1>
+  <p class="subtitle">הדביקו כתובת URL. הכלי בודק אותה מול תבניות פישינג נפוצות ומחזיר ציון סיכון עם הסבר מלא, ואפשר להוריד את הפירוט המלא כקובץ CSV.</p>
+
+  <form id="scan-form">
+    <label class="url-field" for="url-input">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      <input id="url-input" type="text" placeholder="https://example.com/login" autocomplete="off" spellcheck="false">
+    </label>
+    <button id="scan-btn" type="submit">סרוק</button>
+  </form>
+
+  <div id="error-box"></div>
+
+  <div id="result">
+    <div class="result-head">
+      <div class="target-url" id="target-url"></div>
+      <div class="verdict"><span class="verdict-dot"></span><span id="verdict-text"></span></div>
+    </div>
+
+    <div class="score-row">
+      <span class="score-number" id="score-number">0</span>
+      <span class="score-max">/ 100</span>
+      <div class="score-bar-track"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    </div>
+
+    <div class="checklist" id="checklist"></div>
+
+    <button id="download-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      הורדת דוח מפורט (CSV)
+    </button>
+  </div>
+
+  <footer>הכלי מיועד למטרות הגנתיות ולימודיות בלבד.</footer>
+</main>
+
+<script src="index.js"></script>
+</body>
+</html>
